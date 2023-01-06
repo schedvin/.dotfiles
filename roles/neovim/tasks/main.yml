@@ -1,4 +1,4 @@
-- name: Add neovim from ppa:stable
+- name: Add neovim from ppa:unstable
   ansible.builtin.apt_repository:
     repo: ppa:neovim-ppa/unstable
 
@@ -18,7 +18,7 @@
   become: no
   ansible.builtin.copy:
     dest: "~/.config/nvim/init.lua"
-    src: "init.lua"
+    src: "kickstart/init.lua"
 
 - name: Copy modules
   become: no

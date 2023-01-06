@@ -1,6 +1,6 @@
 local M = {}
 
-M.servers = {
+M.ensure_installed = {
   bashls = {},
   tsserver = {},
 }
@@ -14,7 +14,7 @@ M.setup_handlers = function()
 
   lspconfig.bashls.setup {
     on_attach = function(_, bufnr)
-      print("Attached")
+      -- print("Attached")
     end
   }
 end
