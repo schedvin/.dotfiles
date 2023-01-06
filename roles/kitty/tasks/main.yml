@@ -1,0 +1,19 @@
+
+---
+- name: Install kitty
+  ansible.builtin.apt:
+    name:
+      - kitty
+    state: present      
+
+
+- name: Create kitty config folder
+  ansible.builtin.file:
+    mode: "0755"
+    path: "~/.config/kitty"
+    state: directory
+
+- name: Copy kitty.conf
+  ansible.builtin.copy:
+    dest: "~/.config/kitty/kitty.conf"
+    src: "kitty.conf"

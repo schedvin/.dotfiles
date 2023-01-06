@@ -1,0 +1,32 @@
+- name: Add neovim from ppa:stable
+  ansible.builtin.apt_repository:
+    repo: ppa:neovim-ppa/unstable
+
+- name: Install neovim
+  ansible.builtin.package:
+    name: neovim
+    state: latest
+
+- name: Create neovim config folder
+  become: no
+  ansible.builtin.file:
+    mode: "0755"
+    path: "~/.config/nvim"
+    state: directory
+
+- name: Copy init.lua
+  become: no
+  ansible.builtin.copy:
+    dest: "~/.config/nvim/init.lua"
+    src: "init.lua"
+
+- name: Copy modules
+  become: no
+  ansible.builtin.copy:
+    dest: "~/.config/nvim/lua"
+    src: "lua/"
+- name: Copy modules
+  become: no
+  ansible.builtin.copy:
+    dest: "~/.config/nvim/after"
+    src: "after/"

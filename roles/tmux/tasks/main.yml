@@ -1,0 +1,17 @@
+---
+- name: Install tmux
+  ansible.builtin.apt:
+    name:
+      - tmux
+    state: present
+- name: Install tpm
+  become: no
+  ansible.builtin.git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "~/.tmux/plugins/tpm"
+
+- name: Copy tmux config
+  become: no
+  ansible.builtin.copy:
+    dest: "~/.tmux.conf"
+    src: ".tmux.conf"

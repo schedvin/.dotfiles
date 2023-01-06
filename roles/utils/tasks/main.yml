@@ -1,0 +1,10 @@
+---
+- name: Copy utils
+  become: no
+  ansible.builtin.copy:
+    src: '{{item}}'
+    dest: '~/.local/bin/'
+    mode: 0744
+  loop:
+    - tmux-sessionizer.sh
+    - tmux-windowizer.sh
