@@ -20,13 +20,18 @@
     dest: "~/.config/nvim/init.lua"
     src: "kickstart/init.lua"
 
-- name: Copy modules
+- name: Copy lua folder
   become: no
   ansible.builtin.copy:
     dest: "~/.config/nvim/lua"
     src: "lua/"
-- name: Copy modules
+- name: Copy after folder
   become: no
   ansible.builtin.copy:
     dest: "~/.config/nvim/after"
     src: "after/"
+- name: Copy ftplugin folder
+  become: no
+  ansible.builtin.copy:
+    dest: "~/.config/nvim/ftplugin"
+    src: "ftplugin/"
