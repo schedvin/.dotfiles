@@ -20,10 +20,11 @@ vim.wo.signcolumn = 'yes'
 
 vim.cmd [[colorscheme tokyonight]]
 
+vim.keymap.set("x", "<C-t>", "<cmd>NvimTreeToggle<cr>", { desc = "[C-t]oggle NvimTree" })
+
 -- Remap moving visual selection
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = "Move visual selection up" })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = "Move visual selection down" })
-
 
 -- paste
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -45,9 +46,10 @@ vim.keymap.set("v", "<leader>fv", "<cmd>lua vim.lsp.buf.format()<cr>")
 -- Telescope keymaps
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[Search] [K]eymaps' })
 
-
+-- toggle Zen Mode
 vim.keymap.set('n', '<leader>zz', ':ZenMode<cr>')
 
+-- folke/trouble
 vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>",
   { silent = true, noremap = true }
 )
@@ -78,5 +80,14 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
   { silent = true, noremap = true }
 )
 
+-- ThePrimeagen/harpoon
+-- TODO: sort out these keymaps
+vim.keymap.set("n", "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<cr>")
+vim.keymap.set("n", "<leader>n", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
+vim.keymap.set("n", "<leader>p", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
+vim.keymap.set("n", "<leader>g1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
+vim.keymap.set("n", "<leader>g2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
+vim.keymap.set("n", "<leader>g3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
+vim.keymap.set("n", "<leader>g4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 
 vim.keymap.set("n", "<C-t>", "<Plug>PlenaryTestFile<cr>")
