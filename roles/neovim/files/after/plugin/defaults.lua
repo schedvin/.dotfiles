@@ -20,7 +20,8 @@ vim.wo.signcolumn = 'yes'
 
 vim.cmd [[colorscheme tokyonight]]
 
-vim.keymap.set("x", "<C-t>", "<cmd>NvimTreeToggle<cr>", { desc = "[C-t]oggle NvimTree" })
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
+vim.keymap.set("n", "<leader>es", "<cmd>NvimTreeFindFile<cr>", { desc = "NvimTreeFindFile - show buffer" })
 
 -- Remap moving visual selection
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = "Move visual selection up" })
@@ -44,6 +45,7 @@ vim.keymap.set("v", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<leader>fv", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 -- Telescope keymaps
+vim.keymap.set('n', '<leader>sb', require('telescope.builtin').live_grep({grep_open_files=true}), { desc = '[S]earch open [b]uffers by grep' })
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[Search] [K]eymaps' })
 
 -- toggle Zen Mode

@@ -3,7 +3,7 @@
 if [[  $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/Projects/personal/ ~/Projects/work/dlab/ -mindepth 1 -maxdepth 1 -type d \( -iname "*" ! -iname ".*" \) | fzf)
+  selected=$(find ~/Projects/personal/ ~/Projects/work/dlab/ -mindepth 1 -maxdepth 1 -type d,l \( -iname "*" ! -iname ".*" \) | fzf)
 fi
 
 if [[ -z $selected ]]; then
