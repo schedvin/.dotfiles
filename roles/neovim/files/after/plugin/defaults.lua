@@ -45,8 +45,8 @@ vim.keymap.set("v", "<leader>ff", "<cmd>lua vim.lsp.buf.format()<cr>")
 vim.keymap.set("v", "<leader>fv", "<cmd>lua vim.lsp.buf.format()<cr>")
 
 -- Telescope keymaps
-vim.keymap.set('n', '<leader>sb', require('telescope.builtin').live_grep({grep_open_files=true}), { desc = '[S]earch open [b]uffers by grep' })
-vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[Search] [K]eymaps' })
+vim.keymap.set('n', '<leader>sb', '<cmd>lua require("telescope.builtin").live_grep( { grep_open_files=true } )<cr>', { desc = '[S]earch open [b]uffers by grep' })
+vim.keymap.set('n', '<leader>sk', '<cmd>lua require("telescope.builtin").keymaps()<cr>', { desc = '[Search] [K]eymaps' })
 
 -- toggle Zen Mode
 vim.keymap.set('n', '<leader>zz', ':ZenMode<cr>')
